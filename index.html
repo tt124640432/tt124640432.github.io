@@ -1,1 +1,45 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>rp</title><link href=/css/chunk-6d90f167.82242ca6.css rel=prefetch><link href=/js/chunk-6d90f167.cbb40c54.js rel=prefetch><link href=/css/app.d531350f.css rel=preload as=style><link href=/js/app.02306398.js rel=preload as=script><link href=/js/chunk-vendors.dc6066f4.js rel=preload as=script><link href=/css/app.d531350f.css rel=stylesheet></head><body><noscript><strong>We're sorry but rp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.dc6066f4.js></script><script src=/js/app.02306398.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="beginBtn">开始</button>
+
+    <button id="nextBtn" class="hide">next</button>
+    <span id="review"></span>
+</body>
+<script>
+    let beginBtn = window.document.getElementById('beginBtn');
+    let nextBtn = window.document.getElementById('nextBtn');
+    let review = window.document.getElementById('review');
+    let wordIndex = 0;
+    beginBtn.onclick = function () {
+        wordIndex = 1;
+        nextBtn.className = '';
+        beginBtn.className = 'hide';
+        review.innerHTML = `第${wordIndex}个单词`;
+    }
+    nextBtn.onclick = function () {
+        wordIndex++;
+        review.innerHTML =
+            `第 ${wordIndex} --- 需要回忆第 ${showSpan(wordIndex-2,false)}${showSpan(wordIndex-6)}${showSpan(wordIndex-20)} 个单词`;
+    }
+
+    function showSpan(num, space=true) {
+        if (num <= 0) return '';
+        return space ? ` / ${num}` : num;
+    }
+</script>
+
+</html>
