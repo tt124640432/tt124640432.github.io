@@ -10,14 +10,38 @@
         .hide {
             display: none;
         }
+
+        span {
+            display: block;
+            margin-top: 50px;
+            padding: 0 10px;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            background-color: #7fbf0e;
+            color: #fff;
+            border: 4px solid #77b40a75;
+            box-shadow: 0 0 10px 5px #ccc;
+            line-height: 100px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <button id="beginBtn">开始</button>
-
-    <button id="nextBtn" class="hide">next</button>
     <span id="review"></span>
+
+    <div id="beginBtn">开始</div>
+
+    <div id="nextBtn" class="hide">next</div>
 </body>
 <script>
     let beginBtn = window.document.getElementById('beginBtn');
@@ -28,15 +52,15 @@
         wordIndex = 1;
         nextBtn.className = '';
         beginBtn.className = 'hide';
-        review.innerHTML = `第${wordIndex}个单词`;
+        review.innerHTML = `当前 ${wordIndex}`;
     }
     nextBtn.onclick = function () {
         wordIndex++;
         review.innerHTML =
-            `第 ${wordIndex} --- 需要回忆第 ${showSpan(wordIndex-2,false)}${showSpan(wordIndex-6)}${showSpan(wordIndex-20)} 个单词`;
+            `当前 ${wordIndex}  --- 需要回忆第 ${showSpan(wordIndex-2,false)}${showSpan(wordIndex-6)}${showSpan(wordIndex-20)} 个单词`;
     }
 
-    function showSpan(num, space=true) {
+    function showSpan(num, space = true) {
         if (num <= 0) return '';
         return space ? ` / ${num}` : num;
     }
