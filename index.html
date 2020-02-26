@@ -57,7 +57,7 @@
     nextBtn.onclick = function () {
         wordIndex++;
         review.innerHTML =
-            `当前 ${wordIndex}  --- 需要回忆第 ${showSpan(wordIndex-2,false)}${showSpan(wordIndex-6)}${showSpan(wordIndex-20)} 个单词`;
+            `当前 ${wordIndex}  --- 需要回忆第 ${showSpan(wordIndex-2,false)}${showSpan(wordIndex-6)}${showSpan(wordIndex-20)}`;
     }
 
     function showSpan(num, space = true) {
